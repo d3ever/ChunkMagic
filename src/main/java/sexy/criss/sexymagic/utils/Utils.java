@@ -11,10 +11,12 @@
  *******************************************************/
 package sexy.criss.sexymagic.utils;
 
+import com.google.common.collect.Lists;
 import com.sun.istack.internal.NotNull;
 import org.bukkit.ChatColor;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class Utils {
 
@@ -32,6 +34,13 @@ public class Utils {
             out = f(s.concat(" [" + Arrays.toString(args) + "]"));
         }
         return out;
+    }
+
+    @NotNull
+    public static List<String> f(@NotNull List<String> l) {
+        List<String> t = Lists.newArrayList();
+        l.forEach(s -> t.add(f(s)));
+        return t;
     }
 
 }

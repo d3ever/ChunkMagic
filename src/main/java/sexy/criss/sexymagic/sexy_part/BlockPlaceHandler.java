@@ -44,12 +44,15 @@ public class BlockPlaceHandler extends SexyEvent {
             for(int z = bz; z < bz + 16; z++) {
                 for(int y = 0; y < 128; y++) {
                     Block target = w.getBlockAt(x, y, z);
-                    if(target.getType().equals(b.getType())) {
-                        if(Main._types.containsKey(b.getType())) {
-                            if (count >= Main._types.get(b.getType())) {
+                    String type = target.getType().getId() + ":" + target.getData();
+                    String type0 = b.getType().getId() + ":" + b.getData();
+
+                    if(type.equals(type0)) {
+                        if(Main._types.containsKey(type)) {
+                            if (count >= Main._types.get(type).getLimit()) {
                                 p.sendMessage(Utils.f(msg
                                         .replace("{block}", b.getType().toString())
-                                        .replace("{limit}", Main._types.get(b.getType()).toString())));
+                                        .replace("{limit}", String.valueOf(Main._types.get(type).getLimit()))));
                                 e.setCancelled(true);
                                 return;
                             }
