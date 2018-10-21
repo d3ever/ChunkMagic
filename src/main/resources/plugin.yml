@@ -1,0 +1,4 @@
+name: ChunkMagic
+version: ${project.version}
+main: sexy.criss.sexymagic.main.Main
+authors: [d3ever]

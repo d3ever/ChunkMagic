@@ -1,0 +1,4 @@
+block-types:
+  - 'DIRT:5'
+messages:
+  1: '&cЛимитирование блоков с данным типом на {limit}'
